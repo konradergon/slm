@@ -15,5 +15,6 @@ private:
   int k;
   Counter kgrams; // kgrams
   Counter next;   // (k+1)grams
+  std::vector<std::string> alphabet;
 };
 
