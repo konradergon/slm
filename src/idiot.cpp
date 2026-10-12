@@ -1,5 +1,7 @@
 #include "idiot.h"
+
 #include <stdexcept>
+#include <numeric>
 
 using namespace std;
 
@@ -22,7 +24,9 @@ string Idiot::gen(size_t len, double alpha, mt19937& r) const {
     string w = out.substr(out.size()-k); // last k chars written
     vector<double> v;                    // counts for all w+c sequences
     for (const string& c : alphabet)
-      v.push_back(next.count(w+c) + alpha);  // now, alpha makes it continue even though no c would follow
+      v.push_back(next.count(w+c) + alpha); // now, alpha makes it continue even though no c would follow
+    if (accumulate(v.begin(), v.end(), 0.0) == 0) // did no letter follow?
+      break;
     out += pick(alphabet, v, r);         // pick next char
   }
   return out;

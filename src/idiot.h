@@ -14,7 +14,7 @@ public:
   std::string gen(std::size_t, double, std::mt19937&) const;
 
 private:
-  int k;
+  std::size_t k;
   Counter kgrams; // kgrams
   Counter next;   // (k+1)grams
   std::vector<std::string> alphabet;
