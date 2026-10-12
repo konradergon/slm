@@ -10,7 +10,7 @@ Counter::Counter(const string& text, int n) {
 }
 
 // get list of segments
-vector<string> Counter::pieces() {
+vector<string> Counter::pieces() const {
   vector<string> v;
   for (auto& p : m)
     v.push_back(p.first);
@@ -18,7 +18,7 @@ vector<string> Counter::pieces() {
 }
 
 // get list of counts for each individual segment
-vector<int> Counter::counts() {
+vector<int> Counter::counts() const {
   vector<int> v;
   for (auto& p : m)
     v.push_back(p.second);
@@ -30,7 +30,7 @@ vector<int> Counter::counts() {
 // this makes counts() & pieces() inaccurate
 //
 // therefore we use m.find()
-int Counter::count(const string& piece) {
-  auto it = m.find(piece);             // iterator for pair
+int Counter::count(const string& piece) const {
+  auto it = m.find(piece);               // iterator for pair
   return it == m.end() ? 0 : it->second; // second is count in pair
 }

@@ -12,7 +12,7 @@
 class Idiot {
 public:
   Idiot(const std::string& text, int k);
-  std::string gen(int len, std::mt19937& r);
+  std::string gen(int len, std::mt19937& r) const;
 
 private:
   int k;

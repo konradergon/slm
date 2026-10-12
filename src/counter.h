@@ -8,9 +8,9 @@
 struct Counter {
 public:
   Counter(const std::string&, int);
-  std::vector<std::string> pieces();
-  std::vector<int> counts();
-  int count(const std::string&);
+  std::vector<std::string> pieces() const;
+  std::vector<int> counts() const;
+  int count(const std::string&) const;
 
 private:
   std::map<std::string, int> m;

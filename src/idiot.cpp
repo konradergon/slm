@@ -12,12 +12,12 @@ string pick(const vector<string>& pieces, const vector<int> counts, mt19937& r) 
 }
 
 // generate text
-string Idiot::gen(int len, mt19937& r) {
+string Idiot::gen(int len, mt19937& r) const {
   string out = pick(kgrams.pieces(), kgrams.counts(), r); // we start with some kgram
   while (out.size() < len) {
     string w = out.substr(out.size()-k); // last k chars written
     vector<int> v;                       // counts for all w+c sequences
-    for (string& c : alphabet)
+    for (const string& c : alphabet)
       v.push_back(next.count(w+c));
     out += pick(alphabet, v, r);         // pick next char
   }
