@@ -11,7 +11,6 @@ public:
   std::vector<std::string> pieces();
   std::vector<int> counts();
   std::string piece(int);
-  int count(const std::string&);
 
 private:
   std::map<std::string, int> m;
