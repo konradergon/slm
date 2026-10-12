@@ -10,7 +10,7 @@ Idiot::Idiot(const string& text, int k)
 }
 
 // pick any kgram, likely the most frequent
-string pick(const vector<string>& pieces, const vector<int> counts, mt19937& r) {
+string pick(const vector<string>& pieces, const vector<double> counts, mt19937& r) {
   discrete_distribution<int> d(counts.begin(),counts.end()); // generate die based on count distribution
   return pieces[d(r)]; // r throws the die
 }
