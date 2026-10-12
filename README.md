@@ -1,5 +1,7 @@
 slm - small language model
 
+Build: make (needs C++17 compiler)
+
 Usage: slm [-a alpha] k file length
 
 Args:
