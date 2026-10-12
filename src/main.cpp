@@ -17,10 +17,11 @@
 //
 // use class Counter & class Idiot
 
-#include "counter.h"
+#include "idiot.h"
 
 #include <fstream>
 #include <iostream>
+#include <random>
 #include <sstream>
 #include <string>
 
@@ -34,9 +35,8 @@ string readf(const string& name) {
 }
 
 int main(int argc, char* argv[]) {
-  Counter c(readf(argv[1]), 2);
-  for (string p : c.pieces())
-    cout << p << '\n';
-  for (int c : c.counts())
-    cout << c << '\n';
+  string text = readf(argv[1]);      // read in file text
+  Idiot idt(text,2);                 // initialize idiot; populate map/map1
+  std::mt19937 r(random_device{}()); // seed for idiot
+  cout << idt.gen(5,r) << '\n';      // print generated text
 }
