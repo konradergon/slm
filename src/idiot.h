@@ -1,4 +1,4 @@
-// artificial idiot:
+// Idiot:
 //
 // generate text from kgram distribution
 // based on two maps; one for choosing initial w
