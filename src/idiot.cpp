@@ -13,8 +13,8 @@ string pick(const vector<string>& pieces, const vector<int> counts, mt19937 r) {
 
 // generate text
 string Idiot::gen(int len, mt19937& r) {
-  string out = pick(kgram.keys(), kgram.counts(), r); // we start with some kgram
-  while (out < len) {
+  string out = pick(kgrams.pieces(), kgrams.counts(), r); // we start with some kgram
+  while (out.size() < len) {
     string w = out.substr(out.size()-k); // last k chars written
     vector<string> v;                    // counts for all w+c sequences
     for (char& c : alphabet)
