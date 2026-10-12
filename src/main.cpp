@@ -26,13 +26,15 @@
 
 using namespace std;
 
-int main(int argc, char* argv[]) {
-  ifstream f(argv[1]);
+string readf(const string& name) {
+  ifstream f(name);
   stringstream ss;
   ss << f.rdbuf();
-  string text = ss.str();
-  
-  Counter c(text, 2);
+  return ss.str();
+}
+
+int main(int argc, char* argv[]) {
+  Counter c(readf(argv[1]), 2);
   for (string p : c.pieces())
     cout << p << '\n';
   for (int c : c.counts())
