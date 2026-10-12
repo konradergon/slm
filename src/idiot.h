@@ -4,6 +4,7 @@
 // based on two maps; one for choosing initial w
 // and the other for subsequent letters.
 
+#pragma once
 #include "counter.h"
 
 class Idiot {
