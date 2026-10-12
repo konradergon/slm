@@ -10,7 +10,7 @@ public:
   Counter(const std::string&, int);
   std::vector<std::string> pieces() const;
   std::vector<double> counts() const;
-  int count(const std::string&) const;
+  double count(const std::string&) const;
 
 private:
   std::map<std::string, int> m;

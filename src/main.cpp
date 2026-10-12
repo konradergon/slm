@@ -36,7 +36,7 @@ string readf(const string& name) {
 
 int main(int argc, char* argv[]) {
   string text = readf(argv[1]);      // read in file text
-  Idiot idt(text,0.1,2);             // initialize idiot; populate map/map1
+  Idiot idt(text,2);             // initialize idiot; populate map/map1
   std::mt19937 r(random_device{}()); // seed for idiot
-  cout << idt.gen(5,r) << '\n';      // print generated text
+  cout << idt.gen(5,0.1,r) << '\n';      // print generated text
 }
