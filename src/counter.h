@@ -7,7 +7,7 @@
 
 struct Counter {
 public:
-  Counter(const std::string&, int);
+  Counter(const std::string&, std::size_t);
   std::vector<std::string> pieces() const;
   std::vector<double> counts() const;
   double count(const std::string&) const;

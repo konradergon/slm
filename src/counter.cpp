@@ -4,8 +4,8 @@ using namespace std;
 
 // initialize map
 // "slide window" through text and increment map for each window
-Counter::Counter(const string& text, int n) {
-  for (int i=0; i+n <= text.size(); i++)
+Counter::Counter(const string& text, size_t n) {
+  for (size_t i=0; i+n <= text.size(); i++)
     m[text.substr(i,n)]++;
 }
 

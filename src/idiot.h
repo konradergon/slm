@@ -6,13 +6,12 @@
 
 #pragma once
 #include "counter.h"
-#include <numeric>
 #include <random>
 
 class Idiot {
 public:
-  Idiot(const std::string& text, int k);
-  std::string gen(int len, double alpha, std::mt19937& r) const;
+  Idiot(const std::string&, std::size_t);
+  std::string gen(std::size_t, double, std::mt19937&) const;
 
 private:
   int k;
