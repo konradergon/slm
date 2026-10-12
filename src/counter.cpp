@@ -24,3 +24,9 @@ vector<int> Counter::counts() {
     v.push_back(n);
   return v;
 }
+
+// get specific count
+int count(const string& piece) { return m[piece]; }
+
+// get specific piece
+string piece(int count) { return m[count]; }
