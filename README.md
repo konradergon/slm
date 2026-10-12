@@ -21,4 +21,6 @@ Generate text:
 
 Picker:
 
-- Create die from pseudo-random number based on distribution
+- Create die from distribution
+- Roll die
+- Pick

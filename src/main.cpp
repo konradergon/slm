@@ -21,7 +21,7 @@ bool read(const string& arg, T& val) {
 string readf(const string& name) {
   ifstream f(name);
   if (!f)
-    throw runtime_error("cannot open file "+name+"'");
+    throw runtime_error("cannot open file '"+name+"'");
   stringstream ss;
   ss << f.rdbuf();
   return ss.str();
@@ -32,16 +32,16 @@ int main(int argc, char* argv[]) {
     vector<string> args(argv+1, argv+argc); // read in arguments
   
     double alpha {};
-    if (args[0] == "-a") {
+    if (!args.empty() && args[0] == "-a") {
       if (args.size()<2 || !read(args[1], alpha) || alpha<0) // bad or no alpha
 	throw runtime_error("-a must be followed by a non-negative number");
       args.erase(args.begin(), args.begin()+2);
     }
 
-    if (args[0][0] == '-')
-      throw runtime_error("unknown option");
     if (args.size() != 3)
       throw runtime_error(usage);
+    if (args[0][0] == '-')
+      throw runtime_error("unknown option");
 
     long k {};
     long len {};
