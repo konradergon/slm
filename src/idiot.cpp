@@ -7,8 +7,8 @@ Idiot::Idiot(const string& text, int k)
 
 // pick any kgram, likely the most frequent
 string pick(const vector<string>& pieces, const vector<int> counts, mt19937& r) {
-  discrete_distribution<int> d(pieces.begin(),pieces.end()); // generate die based on count distribution
-  return pieces[d(r)]; // r throws it
+  discrete_distribution<int> d(counts.begin(),counts.end()); // generate die based on count distribution
+  return pieces[d(r)]; // r throws the die
 }
 
 // generate text
@@ -17,7 +17,7 @@ string Idiot::gen(int len, mt19937& r) {
   while (out.size() < len) {
     string w = out.substr(out.size()-k); // last k chars written
     vector<int> v;                       // counts for all w+c sequences
-    for (char& c : alphabet)
+    for (string& c : alphabet)
       v.push_back(next.count(w+c));
     out += pick(alphabet, v, r);         // pick next char
   }
