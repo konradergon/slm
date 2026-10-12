@@ -26,7 +26,7 @@ vector<int> Counter::counts() {
 }
 
 // get specific count
-int count(const string& piece) { return m[piece]; }
+int Counter::count(const string& piece) { return m[piece]; }
 
 // get specific piece
-string piece(int count) { return m[count]; }
+string Counter::piece(int count) { return m[count]; }
