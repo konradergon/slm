@@ -2,7 +2,7 @@ slm - small language model
 
 This is a primitive language model (artificial idiot).
 It generates text based on kgram frequencies. That is,
-how many times sequences in text appears.
+how many times k sized sequences appear in text.
 
 Summary on how it works:
 
