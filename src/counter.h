@@ -12,5 +12,5 @@ public:
   std::vector<int> counts();
 
 private:
-  std::map<std::string, int> counts;
+  std::map<std::string, int> m;
 };

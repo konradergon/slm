@@ -17,7 +17,24 @@
 //
 // use class Counter & class Idiot
 
+#include "counter.h"
+
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
+
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
+  ifstream f(argv[1]);
+  stringstream ss;
+  ss << f.rdbuf();
+  string text = ss.str();
+  
+  Counter c(text, 2);
+  for (string p : c.pieces())
+    cout << p << '\n';
+  for (int c : c.counts())
+    cout << c << '\n';
 }
