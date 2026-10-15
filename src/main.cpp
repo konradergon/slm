@@ -2,6 +2,7 @@
 
 #include "idiot.h"
 
+#include <cctype>
 #include <fstream>
 #include <iostream>
 #include <random>
@@ -38,16 +39,16 @@ int main(int argc, char* argv[]) try {
     args.erase(args.begin(), args.begin()+2);
   }
 
+  if (!args.empty() && args[0][0] == '-' && !isdigit((unsigned char)args[0][1]))
+    throw runtime_error("unknown option '"+args[0]+"'");
   if (args.size() != 3)
     throw runtime_error(usage);
-  if (args[0][0] == '-')
-    throw runtime_error("unknown option");
 
   long k {};
   long len {};
 
-  if (!read(args[0], k))
-    throw runtime_error("k must be a positive integer");
+  if (!read(args[0], k) || k<0)
+    throw runtime_error("k must be a non-negative integer");
   if (!read(args[2], len) || len<1)
     throw runtime_error("length must be a positive integer");
   if (len<k)
