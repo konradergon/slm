@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-struct Counter {
+class Counter {
 public:
   Counter(const std::string&, std::size_t);
   std::vector<std::string> pieces() const;
